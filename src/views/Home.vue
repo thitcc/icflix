@@ -16,14 +16,9 @@ export default {
     "movie-component": Movie
   },
   data: () => ({
-    movies: [{
-      id: 0,
-      name: '',
-      description: '',
-      image: '',
-      trailer: '',
-      rate: 0,
-    }]
+    movies: [
+
+    ]
   }),
   methods: {
     getMovies() {
