@@ -4,10 +4,10 @@
         <ul id="nav2">
           <li class="title"><a href="/">ICFlix</a></li>
           <li class="op-li" v-if="this.$route.name == 'home'"><a href="#" @click="navegar()" id="link">Categorias</a></li>
-          <li class="op-li admin"><a :href="process.env.VUE_APP_API + 'admin'">Admin</a></li>
+          <li class="op-li admin"><a :href="adminURL">Admin</a></li>
         </ul>
     </div>
-    <menu-categoria v-if="showMenuCategories"/>
+    <menu-categoria v-if="showMenuCategories && this.$route.name == 'home'"/>
     <router-view id="container-top"/>
   </div>
 </template>
@@ -17,7 +17,8 @@ import MenuCategoria from './components/MenuCategoria.vue'
 import EventBus from './eventBus'
 export default {
   data: () => ({
-    showMenuCategories: false
+    showMenuCategories: false,
+    adminURL: process.env.VUE_APP_API + 'admin'
   }),
   components: {
     "menu-categoria": MenuCategoria

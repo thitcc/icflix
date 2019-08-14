@@ -27,7 +27,7 @@ export default {
   }),
   methods: {
     getMovies() {
-      this.$http.get(process.env.VUE_APP_API + 'movies').then(
+      this.$http.get(process.env.VUE_APP_API + 'movies/').then(
         success => {
           if (success.status === 200) {
             this.movies = success.body
@@ -46,7 +46,7 @@ export default {
       this.getMovies()
     })
     EventBus.$on('selectCategory', value => {
-      this.$http.get(process.env.VUE_APP_API + 'categories' + value).then(
+      this.$http.get(process.env.VUE_APP_API + 'categories/' + value).then(
         success => {
           if (success.status === 200) {
             this.movies = success.body.movies

@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     loadRecMovies() {
-      this.$http.get(process.env.VUE_APP_API + 'categories' + this.movie.categories[0].id).then(
+      this.$http.get(process.env.VUE_APP_API + 'categories/' + this.movie.categories[0].id).then(
         success => {
           if (success.status === 200) {
             this.recMovies = success.body.movies.filter((value) => value.id != this.movie.id).slice(0,3)
@@ -61,7 +61,7 @@ export default {
       )
     },
     loadData() {
-      this.$http.get(process.env.VUE_APP_API + 'movies' + this.$route.params.id).then(
+      this.$http.get(process.env.VUE_APP_API + 'movies/' + this.$route.params.id).then(
         success => {
           if (success.status === 200) {
             this.movie = success.body

@@ -20,8 +20,7 @@ import EventBus from '../eventBus.js'
         }),
         methods: {
             getCategories() {
-                console.log(process.env.VUE_APP_API)
-                this.$http.get(process.env.VUE_APP_API + 'categories').then(
+                this.$http.get(process.env.VUE_APP_API + 'categories/').then(
                     success => {
                         if (success.status === 200) {
                         this.categories = success.body
